@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travello</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background-color: #3498db; color: white; padding: 20px; text-align: center; }
+        nav { background-color: #2980b9; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        .destinations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px; }
+        .destination { border: 1px solid #ddd; padding: 10px; text-align: center; height: 200px; }
+        .destination h3 { margin: 10px 0 5px; }
+        .destination p { margin: 0; color: #555; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Travello</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Services</a>
+    <a href="#">News</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="destinations">
+    {% for dest in destinations %}
+    <div class="destination">
+        <h3>{{ dest.name }}</h3>
+        <p>Starts from ${{ dest.price }}</p>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
