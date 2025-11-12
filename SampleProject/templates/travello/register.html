@@ -6,16 +6,23 @@
     <title>Registration</title>
 </head>
 <body>
-    <form action = "register" method="post">
-        {%csrf_token%}
+    <h2>Register</h2>
 
-        <input type = "text" name = "First_name" placeholder="First Name"><br>
-        <input type = "text" name = "Last_name" placeholder="Last Name"><br>
-        <input type = "text" name = "Username" placeholder="Username"><br>
-        <input type = "email" name = "email" placeholder="email"><br>
-        <input type = "password" name = "Password1" placeholder="Password"><br>
-        <input type = "password" name = "Password2" placeholder="Confirm Password"><br>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
 
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="First Name" required><br>
+        <input type="text" name="last_name" placeholder="Last Name" required><br>
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password1" placeholder="Password" required><br>
+        <input type="password" name="password2" placeholder="Confirm Password" required><br><br>
+        <input type="submit" value="Register">
     </form>
 </body>
 </html>
